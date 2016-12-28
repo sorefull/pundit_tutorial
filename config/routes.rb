@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '', to: 'statics#landing', as: 'landing'
   resources :posts
   devise_for :users
   namespace :admin do

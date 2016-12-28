@@ -18,7 +18,6 @@ class Admin::UsersController < ApplicationController
   def new
     @user = User.new
     authorize [:admin, @user]
-
   end
 
   # GET /users/1/edit
@@ -29,7 +28,7 @@ class Admin::UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
+    @user = User.new(user_params.merge(password: SecureRandom.base64))
     authorize [:admin, @user]
 
     respond_to do |format|

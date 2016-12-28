@@ -19,7 +19,7 @@ class Admin::UserPolicy
   end
 
   def update?
-    current_user_p && current_user_p.admin?&& current_user_p != user
+    current_user_p && current_user_p.admin? && (current_user_p != user[1])
   end
 
   def new?
@@ -31,6 +31,6 @@ class Admin::UserPolicy
   end
 
   def destroy?
-    current_user_p && current_user_p.admin? && current_user_p != user
+    current_user_p && current_user_p.admin? && (current_user_p != user[1])
   end
 end
