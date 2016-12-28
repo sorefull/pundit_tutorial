@@ -6,6 +6,14 @@ class PostPolicy
     @post = post
   end
 
+  def index?
+    show?
+  end
+
+  def show?
+    user.present?
+  end
+
   def edit?
     update?
   end
